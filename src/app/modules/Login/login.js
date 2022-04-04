@@ -82,6 +82,7 @@ export default function Login() {
                         values?.password === "12345"
                       ) {
                         // stuff
+                        setAuth(true);
                       } else {
                         alert(
                           `wrong info\nEmail: test@mail.com & Password: 12345`

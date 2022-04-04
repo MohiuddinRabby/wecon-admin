@@ -8,7 +8,8 @@ import { Routes } from "../app/Routes";
 import { I18nProvider } from "../_metronic/i18n";
 import { LayoutSplashScreen, MaterialThemeProvider } from "../_metronic/layout";
 import LoginContextProvider from "./assets/CustomContextApi/LoginContext";
-
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 export default function App({ basename }) {
   return (
     <>
@@ -22,6 +23,7 @@ export default function App({ basename }) {
             <I18nProvider>
               {/* Render routes with provided `Layout`. */}
               <LoginContextProvider>
+                <ToastContainer position="top-right" autoClose={2000} />
                 <Routes />
               </LoginContextProvider>
             </I18nProvider>

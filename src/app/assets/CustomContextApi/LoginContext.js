@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 export const LoginContext = createContext();
 const LoginContextProvider = (props) => {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
   console.log("from context", auth);
   return (
     <LoginContext.Provider value={[auth, setAuth]}>
