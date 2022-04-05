@@ -14,7 +14,7 @@ export default function ICustomCard({
   createHandler,
   viewHandler,
   children,
-  renderProps
+  renderProps,
 }) {
   return (
     <>
