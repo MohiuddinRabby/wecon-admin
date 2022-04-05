@@ -9,12 +9,10 @@ import { DashboardPage } from "./pages/DashboardPage";
 // const GoogleMaterialPage = lazy(() =>
 //   import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
 // );
-// const ReactBootstrapPage = lazy(() =>
-//   import("./modules/ReactBootstrapExamples/ReactBootstrapPage")
-// );
 const TestModulePage = lazy(() =>
-  import("./modules/TestModules/pages/testModulePage")
+  import("./modules/TestModulesTwo/testModulesTwo")
 );
+
 export default function BasePage() {
   // useEffect(() => {
   //   console.log('Base page');

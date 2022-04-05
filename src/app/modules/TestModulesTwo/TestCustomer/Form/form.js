@@ -1,7 +1,7 @@
 import React from "react";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { createNewUser } from "./_api";
+
 // Validation schema
 const validationSchema = Yup.object().shape({
   userName: Yup.string().required("User Name required"),
@@ -10,31 +10,37 @@ const validationSchema = Yup.object().shape({
     .required("Email required"),
   userAddress: Yup.string().required("Address required"),
 });
-const initialValues = {
-  userName: "",
-  userEmail: "",
-  userAddress: "",
-};
-export default function TestUsersCreate() {
+
+export default function _Form({
+  initData,
+  btnRef,
+  saveHandler,
+  resetBtnRef,
+  setFileObjects,
+  fileObjects,
+  isEdit,
+}) {
   return (
     <>
       <Formik
-        initialValues={initialValues}
+        initialValues={initData}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          const itemsData = {
-            userId: 1,
-            title: values?.userName,
-            body: values?.userEmail,
-            address: values?.userAddress,
-          };
-          createNewUser(itemsData);
-          resetForm();
+          saveHandler(values);
+          resetForm(initData);
         }}
       >
-        {({ values, setFieldValue, errors, touched, isValid }) => (
+        {({
+          handleSubmit,
+          resetForm,
+          values,
+          errors,
+          touched,
+          setFieldValue,
+          isValid,
+        }) => (
           <>
-            <Form>
+            <Form className="form form-label-right">
               <div className="container">
                 <div className="form-group row py-5">
                   <div className="col-lg-4">
@@ -74,16 +80,20 @@ export default function TestUsersCreate() {
                     </div>
                   </div>
                 </div>
-                <div>
-                  <button
-                    className="btn btn-primary"
-                    type="submit"
-                    disabled={!isValid}
-                  >
-                    Submit
-                  </button>
-                </div>
               </div>
+              <button
+                type="submit"
+                style={{ display: "none" }}
+                ref={btnRef}
+                onSubmit={() => handleSubmit()}
+              ></button>
+
+              <button
+                type="reset"
+                style={{ display: "none" }}
+                ref={resetBtnRef}
+                onSubmit={() => resetForm(initData)}
+              ></button>
             </Form>
           </>
         )}
