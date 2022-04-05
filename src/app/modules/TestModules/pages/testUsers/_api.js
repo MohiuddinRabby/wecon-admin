@@ -39,3 +39,17 @@ export const deleteUser = async (userID) => {
     console.log(error.message);
   }
 };
+// create new user
+export const createNewUser = async (data) => {
+  try {
+    const res = await Axios.post(
+      `https://jsonplaceholder.typicode.com/posts`,
+      data
+    );
+    if (res.status === 201) {
+      toast.success("User created succesfully");
+    }
+  } catch (error) {
+    toast.error(error.message);
+  }
+};

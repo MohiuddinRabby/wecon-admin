@@ -33,7 +33,7 @@ export default function BasePage() {
         <ContentRoute path="/my-page" component={MyPage} />
         {/* <Route path="/google-material" component={GoogleMaterialPage} />
         <Route path="/react-bootstrap" component={ReactBootstrapPage} /> */}
-        <Route path="/test-modules" component={TestModulePage} />
+        <ContentRoute path="/test-modules" component={TestModulePage} />
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>

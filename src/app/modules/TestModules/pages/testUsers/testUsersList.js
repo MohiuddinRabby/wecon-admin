@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import TestUserModal from "./testUserModal";
+import { useHistory } from "react-router-dom";
 import { getUserList, deleteUser } from "./_api";
 export default function TestUsersList() {
   const [userList, setUserList] = useState();
@@ -12,10 +12,7 @@ export default function TestUsersList() {
     const newNotes = userList?.filter((note) => note?.id !== userID);
     deleteUser(userID).then(() => setUserList(newNotes));
   };
-  //   get data items
-  const [showModal, setShowModal] = useState(false);
-  const handleCloseModal = () => setShowModal(false);
-  const handleShowModal = () => setShowModal(true);
+  const history = useHistory();
   return (
     <div>
       <table className="table">
@@ -32,7 +29,7 @@ export default function TestUsersList() {
         <tbody>
           {userList?.map((userInfo) => (
             <>
-              <tr key={userInfo?.id}>
+              <tr>
                 <th>{userInfo?.id}</th>
                 <td>{userInfo?.name}</td>
                 <td>{userInfo?.username}</td>
@@ -40,8 +37,12 @@ export default function TestUsersList() {
                 <td>{userInfo?.phone}</td>
                 <td>
                   <button
-                    className="btn btn-success btn-sm mr-2"
-                    onClick={handleShowModal}
+                    className="btn btn-success btn-sm"
+                    onClick={() => {
+                      history.push({
+                        pathname: `/test-modules/test-user-list/user-details/${userInfo?.id}`,
+                      });
+                    }}
                   >
                     view
                   </button>
@@ -51,15 +52,6 @@ export default function TestUsersList() {
                   >
                     delete
                   </button>
-                  {showModal ? (
-                    <TestUserModal
-                      show={showModal}
-                      handleClose={handleCloseModal}
-                      id={userInfo?.id}
-                    ></TestUserModal>
-                  ) : (
-                    false
-                  )}
                 </td>
               </tr>
             </>
