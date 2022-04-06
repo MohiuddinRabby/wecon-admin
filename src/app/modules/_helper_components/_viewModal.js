@@ -42,7 +42,7 @@ export default function IViewModal({
                 onClick={() => onHide()}
                 className="btn btn-light btn-elevate"
               >
-                {btnText ? btnText : "Cancel"}
+                {btnText ? btnText : "Close"}
               </button>
               <> </>
             </div>

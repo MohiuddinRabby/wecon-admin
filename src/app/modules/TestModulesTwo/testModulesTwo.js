@@ -3,7 +3,7 @@ import { Redirect, Switch } from "react-router-dom";
 import { Suspense } from "react";
 import TestUsersCreate from "./TestCustomer/Form/addEditForm";
 import { ContentRoute, LayoutSplashScreen } from "../../../_metronic/layout";
-import { TestUserTable } from "./TestCustomer/Landing/tableHeader";
+import TestModuleTwoLanding from ".";
 
 export function TestModulesTwo() {
   return (
@@ -19,7 +19,7 @@ export function TestModulesTwo() {
         }
         <ContentRoute
           path="/test-modules/test-user-list"
-          component={TestUserTable}
+          component={TestModuleTwoLanding}
         />
 
         <ContentRoute

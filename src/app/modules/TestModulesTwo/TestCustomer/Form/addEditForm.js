@@ -29,9 +29,7 @@ export default function TresuaryDepositForm() {
       if (params?.id) {
         // eslint-disable-next-line no-unused-vars
         const payload = {
-          userName: values?.userName,
-          userEmail: values?.userEmail,
-          userAddress: values?.userAddress,
+          // objectName : values?.objectName
         };
         // edit api
         // apiName(payload);
