@@ -17,7 +17,6 @@ export default function TresuaryDepositForm() {
 
   //SingleData to view
   const [singleData, setSingleData] = useState("");
-
   useEffect(() => {
     if (params?.id) {
       //   signleIDapi for edit(params?.id, setSingleData);

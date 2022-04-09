@@ -19,9 +19,8 @@ export function TableRow() {
   const deleteUserFromList = (id) => {
     const newNotes = userList?.filter((note) => note?.id !== id);
     setUserList(newNotes);
-    toast.error("user deleted succesfully");
+    toast.success("user deleted succesfully");
   };
-  console.log(userList);
   return (
     <ICustomCard
       title="Customer List (Test)"
