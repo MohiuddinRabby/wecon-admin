@@ -25,7 +25,7 @@ export function TestModulesTwo() {
         <ContentRoute
           path="/test-modules-three/test-users-create"
           component={TestUsersCreate}
-        />{" "}
+        />
         <ContentRoute
           path="/test-modules-three/singleUserDetails/:id"
           component={ViewPage}

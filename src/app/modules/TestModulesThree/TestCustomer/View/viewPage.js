@@ -12,6 +12,7 @@ export default function ViewPage() {
     }
   }, [id]);
   const history = useHistory();
+  console.log("single user details", singleData);
   return (
     <ICustomCard title="Single Customer Details (Test)">
       <div>
@@ -43,7 +44,8 @@ export default function ViewPage() {
           </h6>
           <h6 className="card-text py-2">
             <i className="fas fa-briefcase"></i>&nbsp;&nbsp;
-            {singleData?.company?.name} ({singleData?.company?.bs})
+            {singleData?.company?.name} (BS: {singleData?.company?.bs}
+            &nbsp;&nbsp; CatchPhrase: {singleData?.company?.catchPhrase})
           </h6>
         </div>
         <div className="card-footer border-success"></div>
