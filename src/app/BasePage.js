@@ -6,19 +6,14 @@ import { BuilderPage } from "./pages/BuilderPage";
 import { MyPage } from "./pages/MyPage";
 import { DashboardPage } from "./pages/DashboardPage";
 
-// const GoogleMaterialPage = lazy(() =>
-//   import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
-// );
 const TestModulePage = lazy(() =>
   import("./modules/TestModulesTwo/testModulesTwo")
 );
+const TestModulePageThree = lazy(() =>
+  import("./modules/TestModulesThree/testModulesThree")
+);
 
 export default function BasePage() {
-  // useEffect(() => {
-  //   console.log('Base page');
-  // }, []) // [] - is required if you need only one call
-  // https://reactjs.org/docs/hooks-reference.html#useeffect
-
   return (
     <Suspense fallback={<LayoutSplashScreen />}>
       <Switch>
@@ -32,6 +27,10 @@ export default function BasePage() {
         {/* <Route path="/google-material" component={GoogleMaterialPage} />
         <Route path="/react-bootstrap" component={ReactBootstrapPage} /> */}
         <ContentRoute path="/test-modules" component={TestModulePage} />
+        <ContentRoute
+          path="/test-modules-three"
+          component={TestModulePageThree}
+        />
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>
