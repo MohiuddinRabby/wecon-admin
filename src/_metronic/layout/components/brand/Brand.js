@@ -4,7 +4,7 @@ import objectPath from "object-path";
 import SVG from "react-inlinesvg";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { toAbsoluteUrl } from "../../../_helpers";
-
+import BrandLogo from "./brand-logo-1.jpg";
 export function Brand() {
   const uiService = useHtmlClassService();
 
@@ -28,8 +28,8 @@ export function Brand() {
         id="kt_brand"
       >
         {/* begin::Logo */}
-        <Link to="" className="brand-logo">
-          <img alt="logo" src={layoutProps.headerLogo} />
+        <Link to="" className="brand-logo ml-5">
+          <img alt="logo" src={BrandLogo} className="ml-5" />
         </Link>
         {/* end::Logo */}
 
