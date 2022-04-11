@@ -16,11 +16,11 @@ export function TableRow() {
     getUserList(setUserList);
   }, []);
   const history = useHistory();
-  const pushData = () => {
-    history.push({
-      pathname: "/test-modules-three/test-users-create",
-    });
-  };
+  // const pushData = () => {
+  //   history.push({
+  //     pathname: "/test-modules-three/test-users-create",
+  //   });
+  // };
   const idItemRef = useRef();
   const handleDialog = (message, isLoading, itemName) => {
     setDialog({
@@ -29,11 +29,10 @@ export function TableRow() {
       itemName,
     });
   };
-  const deleteUserFromList = (id) => {
-    handleDialog("Are you sure you want to delete?", true, id);
-    idItemRef.current = id;
-    //
-  };
+  // const deleteUserFromList = (id) => {
+  //   handleDialog("Are you sure you want to delete?", true, id);
+  //   idItemRef.current = id;
+  // };
   const areUSureDelete = (choose) => {
     if (choose) {
       setUserList(userList.filter((p) => p.id !== idItemRef.current));
@@ -45,48 +44,50 @@ export function TableRow() {
   };
   // send new page to see single user details
   const sendToIDDetails = (id) => {
-    history.push(`/test-modules-three/singleUserDetails/${id}`);
+    history.push(`/transactions/transactions-users-details/${id}`);
   };
 
   return (
     <ICustomCard
-      title="Customer List (Test)"
-      renderProps={() => (
-        <button className="btn btn-primary" onClick={pushData}>
-          Create new user
-        </button>
-      )}
+      title="User Transaction List"
+      // renderProps={() => (
+      //   <button className="btn btn-primary" onClick={pushData}>
+      //     Create new user
+      //   </button>
+      // )}
     >
       <table className="table">
         <thead>
           <tr>
             <th scope="col">id</th>
-            <th scope="col">Name</th>
-            <th scope="col">User Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Action</th>
+            <th scope="col">user Name</th>
+            <th scope="col">email</th>
+            <th scope="col">account no</th>
+            <th scope="col">amount</th>
+            <th scope="col">date</th>
+            <th scope="col">actions</th>
           </tr>
         </thead>
         <tbody>
           {userList?.map((userInfo) => (
             <tr key={userInfo?.id}>
               <th>{userInfo?.id}</th>
-              <td>{userInfo?.name}</td>
               <td>{userInfo?.username}</td>
               <td>{userInfo?.email}</td>
               <td>{userInfo?.phone}</td>
+              <td>5,000</td>
+              <td>04.11.2022</td>
               <td className="d-flex justify-content-around">
                 <i
                   className="fas fa-eye"
                   style={{ cursor: "pointer" }}
                   onClick={() => sendToIDDetails(userInfo?.id)}
                 ></i>
-                <i
+                {/* <i
                   className="fas fa-trash"
                   style={{ cursor: "pointer" }}
                   onClick={() => deleteUserFromList(userInfo?.id)}
-                ></i>
+                ></i> */}
               </td>
             </tr>
           ))}

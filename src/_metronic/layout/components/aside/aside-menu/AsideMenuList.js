@@ -131,6 +131,82 @@ export function AsideMenuList({ layoutProps }) {
           </div>
         </li>
         {/* =====test modules end==== */}
+        {/* =====transaction section start==== */}
+        <li
+          className={`menu-item menu-item-submenu ${getMenuItemActive(
+            "/transactions",
+            true
+          )}`}
+          aria-haspopup="true"
+          data-menu-toggle="hover"
+        >
+          <NavLink className="menu-link menu-toggle" to="/google-material">
+            <span className="svg-icon menu-icon">
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Cap-2.svg")} />
+            </span>
+            <span className="menu-text">Transactions</span>
+            <i className="menu-arrow" />
+          </NavLink>
+          <div className="menu-submenu ">
+            <i className="menu-arrow" />
+            <ul className="menu-subnav">
+              <li className="menu-item  menu-item-parent" aria-haspopup="true">
+                <span className="menu-link">
+                  <span className="menu-text">Transactions</span>
+                </span>
+              </li>
+
+              {/* Inputs */}
+              {/*begin::2 Level*/}
+              <li
+                className={`menu-item menu-item-submenu ${getMenuItemActive(
+                  "/transactions/transaction-user-list",
+                  true
+                )}`}
+                aria-haspopup="true"
+                data-menu-toggle="hover"
+              >
+                <NavLink
+                  className="menu-link menu-toggle"
+                  to="/transactions/transaction-user-list"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">User Details</span>
+                  <i className="menu-arrow" />
+                </NavLink>
+                <div className="menu-submenu ">
+                  <i className="menu-arrow" />
+                  <ul className="menu-subnav">
+                    {/*begin::3 Level*/}
+                    <li
+                      className={`menu-item  ${getMenuItemActive(
+                        "/transactions/transaction-user-list"
+                      )}`}
+                      aria-haspopup="true"
+                    >
+                      <NavLink
+                        className="menu-link"
+                        to="/transactions/transaction-user-list"
+                      >
+                        <i className="menu-bullet menu-bullet-dot">
+                          <span />
+                        </i>
+                        <span className="menu-text">
+                          User Transaction Panel
+                        </span>
+                      </NavLink>
+                    </li>
+                    {/*end::3 Level*/}
+                  </ul>
+                </div>
+              </li>
+              {/*end::2 Level*/}
+            </ul>
+          </div>
+        </li>
+        {/* =====transaction section end==== */}
       </ul>
       {/* end::Menu Nav */}
     </>

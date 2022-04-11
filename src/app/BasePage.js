@@ -12,6 +12,9 @@ const TestModulePage = lazy(() =>
 const TestModulePageThree = lazy(() =>
   import("./modules/TestModulesThree/testModulesThree")
 );
+const TransactionPage = lazy(() =>
+  import("./modules/TranscationPage/transactionPage")
+);
 
 export default function BasePage() {
   return (
@@ -24,13 +27,12 @@ export default function BasePage() {
         <ContentRoute path="/dashboard" component={DashboardPage} />
         <ContentRoute path="/builder" component={BuilderPage} />
         <ContentRoute path="/my-page" component={MyPage} />
-        {/* <Route path="/google-material" component={GoogleMaterialPage} />
-        <Route path="/react-bootstrap" component={ReactBootstrapPage} /> */}
         <ContentRoute path="/test-modules" component={TestModulePage} />
         <ContentRoute
           path="/test-modules-three"
           component={TestModulePageThree}
         />
+        <ContentRoute path="/transactions" component={TransactionPage} />
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>
