@@ -11,7 +11,6 @@ export function TransactionPage() {
     <Suspense fallback={<LayoutSplashScreen />}>
       <Switch>
         {
-          /* Redirect from eCommerce root URL to /customers */
           <Redirect
             exact={true}
             from="/transactions"

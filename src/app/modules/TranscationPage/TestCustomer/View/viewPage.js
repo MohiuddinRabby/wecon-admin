@@ -47,7 +47,6 @@ export default function ViewPage() {
                       {transactionInfo?.name?.first}
                       {transactionInfo?.name?.last}
                     </h6>
-                    {console.log(transactionInfo?.location?.timezone)}
                     <h6>
                       Sender Location: {transactionInfo?.location?.city},
                       {transactionInfo?.location?.street?.name},
