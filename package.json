@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "/",
   "scripts": {
+    "serve": "cp-cli build _site/ && serve",
     "start": "react-scripts start -o",
     "build": "react-scripts build",
     "test": "react-scripts test",
