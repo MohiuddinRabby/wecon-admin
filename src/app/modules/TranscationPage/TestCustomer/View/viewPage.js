@@ -8,6 +8,7 @@ export default function ViewPage() {
   const { id } = useParams();
   const [singleData, setSingleData] = useState({});
   const [senderInfo, setSenderInfo] = useState();
+  const [loading, setLoading] = useState(true);
   // eslint-disable-next-line no-unused-vars
   const [transactionDetails, setTransactionDetails] = useState(transactionData);
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function ViewPage() {
   }, [id]);
   useEffect(() => {
     senderDetails(setSenderInfo);
+    setLoading(false);
   }, []);
   const history = useHistory();
   return (
@@ -34,35 +36,37 @@ export default function ViewPage() {
           <div className="row">
             <div className="col-md-6">
               <h5>Sender Info</h5>
-              {senderInfo?.results?.map((transactionInfo) => (
-                <div className="card">
-                  <div className="card-body text-center">
-                    <img
-                      src={transactionInfo?.picture?.large}
-                      alt="user avator"
-                      className="img-fluid rounded-circle w-25 mb-3"
-                    />
-                    <h6>
-                      {transactionInfo?.name?.title}
-                      {transactionInfo?.name?.first}
-                      {transactionInfo?.name?.last}
-                    </h6>
-                    <h6>
-                      Sender Location: {transactionInfo?.location?.city},
-                      {transactionInfo?.location?.street?.name},
-                      {transactionInfo?.location?.street?.number}
-                    </h6>
-                    <h6>
-                      Sending time:
-                      {transactionInfo?.location?.timezone?.offset}-
-                      {transactionInfo?.location?.timezone?.description}
-                    </h6>
-                    <h6>Email: {transactionInfo?.email}</h6>
-                    <h6>Phone: {transactionInfo?.phone}</h6>
-                    <h6>Transaction ID: {transactionInfo?.id?.value}</h6>
-                  </div>
-                </div>
-              ))}
+              {loading
+                ? "loading"
+                : senderInfo?.results?.map((transactionInfo) => (
+                    <div className="card">
+                      <div className="card-body text-center">
+                        <img
+                          src={transactionInfo?.picture?.large}
+                          alt="user avator"
+                          className="img-fluid rounded-circle w-25 mb-3"
+                        />
+                        <h6>
+                          {transactionInfo?.name?.title}
+                          {transactionInfo?.name?.first}
+                          {transactionInfo?.name?.last}
+                        </h6>
+                        <h6>
+                          Sender Location: {transactionInfo?.location?.city},
+                          {transactionInfo?.location?.street?.name},
+                          {transactionInfo?.location?.street?.number}
+                        </h6>
+                        <h6>
+                          Sending time:
+                          {transactionInfo?.location?.timezone?.offset}-
+                          {transactionInfo?.location?.timezone?.description}
+                        </h6>
+                        <h6>Email: {transactionInfo?.email}</h6>
+                        <h6>Phone: {transactionInfo?.phone}</h6>
+                        <h6>Transaction ID: {transactionInfo?.id?.value}</h6>
+                      </div>
+                    </div>
+                  ))}
             </div>
             <div className="col-md-6">
               <h5>Receiver Info</h5>
