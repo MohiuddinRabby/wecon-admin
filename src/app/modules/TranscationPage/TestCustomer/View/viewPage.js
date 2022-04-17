@@ -35,9 +35,9 @@ export default function ViewPage() {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <h5>Sender Info</h5>
+              <h5>Sender Information</h5>
               {loading
-                ? "loading"
+                ? "loading content"
                 : senderInfo?.results?.map((transactionInfo) => (
                     <div className="card">
                       <div className="card-body text-center">
